@@ -1,0 +1,21 @@
+.wer-main {
+    width: 100%;
+    
+}
+
+.background {
+    background-image: url("../../assets/back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.backCircle {
+    background-color: rgba(255, 255, 255, 0.483);
+}
+
+.add-product-table, .add-product-table th, .add-product-table td {
+    border: 1px solid rgba(193, 192, 192, 0.48);
+    border-collapse: collapse;
+    padding: 1rem;
+}
