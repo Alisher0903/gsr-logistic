@@ -6,13 +6,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import "./style.css";
-import DropdownA from "./NavDrop";
+import { FaQuestionCircle } from "react-icons/fa";
 
 function NavBar({
   dashboard,
   product,
   client,
-  history,
+  result,
   cassier,
   werhouse,
   lang,
@@ -95,7 +95,7 @@ function NavBar({
   return (
     <div className="">
       <Link to="/" id="logout"></Link>
-      <nav className="bg-white fixed w-full z-20 ">
+      <nav className="bg-white top-0 fixed w-full z-20 ">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="relative inset-y-0 left-0 flex items-center lg:hidden">
@@ -141,8 +141,9 @@ function NavBar({
               </button>
 
               <div
-                className={`${isOpenMenu ? "inline" : "hidden  "
-                  } absolute lg:w-80 w-52 bg-slate-400 top-12 
+                className={`${
+                  isOpenMenu ? "inline" : "hidden  "
+                } absolute lg:w-80 w-52 bg-slate-400 top-12 
                                     rounded-3xl shadow-lg overflow-hidden z-20`}
               >
                 <div className="bg-slate-200 p-5 flex justify-center items-center relative">
@@ -204,7 +205,7 @@ function NavBar({
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 items-center">
-                <Link to='/dashboard'>
+                <Link to="/dashboard">
                   <img
                     className="h-10 w-auto hidden lg:inline"
                     src={logo}
@@ -217,28 +218,28 @@ function NavBar({
                   <Link
                     to="/dashboard"
                     className={`${dashboard} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
-                  // aria-current="page"
+                    // aria-current="page"
                   >
                     {t("dashboard")}
                   </Link>
                   <Link
                     to="/project"
                     className={`${product} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
-                  // aria-current="page"
+                    // aria-current="page"
                   >
                     {t("produkt")}
                   </Link>
                   <Link
                     to="/warehouse"
                     className={`${werhouse} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
-                  // aria-current="page"
+                    // aria-current="page"
                   >
                     {t("werhouse")}
                   </Link>
                   <Link
                     to="/users"
                     className={`${client} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
-                  // aria-current="page"
+                    // aria-current="page"
                   >
                     {t("users")}
                   </Link>
@@ -246,14 +247,27 @@ function NavBar({
                   <Link
                     to="/cassier"
                     className={`${cassier} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
-                  // aria-current="page"
+                    // aria-current="page"
                   >
                     {t("cassier")}
+                  </Link>
+                  <Link
+                    to="/result"
+                    className={`${result} text-gray-500 hover:text-slate-900 mx-5 px-2 py-2 text-sm font-medium duration-300`}
+                    // aria-current="page"
+                  >
+                    {t("category")}
                   </Link>
                 </div>
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <Link
+                to={"/contact"}
+                className="w-10 h-10 rounded-full flex justify-center items-center mr-5 shadow"
+              >
+                <FaQuestionCircle size={30} />
+              </Link>
               <h2 className="relative rounded-full  p-1 text-gray-700 ">
                 {me ? me.name : ""}
               </h2>
@@ -279,8 +293,9 @@ function NavBar({
                 </div>
 
                 <div
-                  className={`${isOpenm ? "inline" : "hidden"
-                    } absolute lg:w-80 w-72 media-nav bg-slate-400 lg:-right-8 right-1 top-12 
+                  className={`${
+                    isOpenm ? "inline" : "hidden"
+                  } absolute lg:w-80 w-72 media-nav bg-slate-400 lg:-right-8 right-1 top-12 
                                     rounded-3xl shadow-lg overflow-hidden z-20`}
                 >
                   <div className="bg-slate-200 sm:p-8 p-3 flex justify-center items-center relative">
