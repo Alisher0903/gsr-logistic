@@ -19,7 +19,7 @@ import {
 import "./home.css";
 import HomeFooter from "./HomeFooter";
 import HomeNav from "../navbar/HomeNav";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -101,8 +101,8 @@ function Home({ changeLang }) {
       });
       setResultData(data.body);
     } catch (error) {
-      toast.error(error.message);
-      setResultData(null);
+      // toast.error(error.message);
+      setResultData();
     }
   };
 
@@ -117,7 +117,7 @@ function Home({ changeLang }) {
           <div className="flex flex-col items-start p-8 space-y-4 text-white max-w-md">
             <h1 className="text-4xl font-bold">Xitoy biz bilan bir qadam.</h1>
             <p>
-              QSR Logistics jamoamiz 10 yil davomida mijozlarga to'xtovsiz
+              GSR Logistics jamoamiz 10 yil davomida mijozlarga to'xtovsiz
               sifatli xizmat ko'rsatib kelishmoqda.
             </p>
             <ul className="space-y-2">
@@ -246,7 +246,9 @@ function Home({ changeLang }) {
                   />
                 </div>
                 <h1 className="text-xl mt-7">
-                  {resultData ? `$${resultData}` : ""}
+                  {resultData && !isNaN(resultData) && resultData !== ""
+                    ? resultData
+                    : ""}
                 </h1>
               </div>
             </div>
@@ -292,8 +294,10 @@ function Home({ changeLang }) {
         {/* start forth section */}
         <div className="w-full flex justify-center items-center gap-5 mt-10 flex-col">
           <h1 className="text-xl font-semibold">Logistika xizmat turlari</h1>
-          <p>Logistika turi yukning davlati, masofasiga qarab o’zgaradi</p>
-          <div className="flex gap-5 my-5 flex-wrap">
+          <p className="p-2">
+            Logistika turi yukning davlati, masofasiga qarab o’zgaradi
+          </p>
+          <div className="flex gap-5 p-3 my-5 flex-wrap">
             <img src={container2} alt="" />
             <div className="flex flex-col gap-5 flex-wrap">
               <img src={container3} alt="" />
@@ -395,7 +399,7 @@ function Home({ changeLang }) {
             <h1 className="text-3xl font-bold text-center">
               Xitoy va O’zbekiston bo’ylab jamoalarimiz
             </h1>
-            <div className="w-2/6 mx-auto mt-6">
+            <div className="w-full sm:w-3/4 md:w-2/6 mx-auto mt-6 p-2">
               <p className="text-center">
                 Har bir jamoa vakili o’ziga yarasha kuch va bilimga ega.
                 Mijozlarimiz bilan kompaniyamiz o’rtasidagi munosabatlarni
@@ -417,14 +421,9 @@ function Home({ changeLang }) {
                   <div className="p-2 rounded bg-[#f2f2f2]">
                     <FaFacebookF color="#8b8aa6" />
                   </div>
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <FaTwitter color="#8b8aa6" />
-                  </div>
+
                   <div className="p-2 rounded bg-[#f2f2f2]">
                     <AiFillInstagram color="#8b8aa6" />
-                  </div>
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <FaLinkedinIn color="#8b8aa6" />
                   </div>
                 </div>
               </div>
@@ -432,7 +431,10 @@ function Home({ changeLang }) {
           </div>
         </div>
         {/* eight */}
-        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-white">
+        <div
+          className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
+          id="contact"
+        >
           <h1 className="text-4xl font-bold text-center">
             Baxtli mijozlardan biri bo’ling
           </h1>
@@ -514,18 +516,43 @@ function Home({ changeLang }) {
                 Yuborish
               </button>
               <div className="flex gap-3 mt-3">
-                <div className="p-2 rounded bg-[#f2f2f2]">
-                  <FaFacebookF color="#8b8aa6" />
-                </div>
-                <div className="p-2 rounded bg-[#f2f2f2]">
-                  <FaTwitter color="#8b8aa6" />
-                </div>
-                <div className="p-2 rounded bg-[#f2f2f2]">
-                  <AiFillInstagram color="#8b8aa6" />
-                </div>
-                <div className="p-2 rounded bg-[#f2f2f2]">
-                  <FaLinkedinIn color="#8b8aa6" />
-                </div>
+                <a
+                  href="https://www.instagram.com/gsrgroup.uz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2]">
+                    <AiFillInstagram color="#8b8aa6" />
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.tiktok.com/@gsrgroupuz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2]">
+                    <FaTiktok color="#8b8aa6" />
+                  </div>
+                </a>
+                <a
+                  href="https://t.me/gsrgroup_uz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2]">
+                    <FaTelegram color="#8b8aa6" />
+                  </div>
+                </a>
+                <a
+                  href="https://youtube.com/@gsrgroupuz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2]">
+                    <FaYoutube color="#8b8aa6" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>

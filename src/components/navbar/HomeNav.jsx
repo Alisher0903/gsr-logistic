@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../home page/home.css";
-
 import { logo1 } from "../../assets";
 import { IoLockClosedOutline } from "react-icons/io5";
 
@@ -10,7 +9,6 @@ function HomeNav() {
 
   const openMenu = () => setIsOpenMenu(!isOpenMenu);
 
-  const login = () => document.getElementById("login").click();
   return (
     <div>
       <nav className="z-50 w-full">
@@ -26,9 +24,8 @@ function HomeNav() {
               >
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Open main menu</span>
-
                 <svg
-                  className="block h-6 w-6"
+                  className={`${isOpenMenu ? "hidden" : "block"} h-6 w-6`}
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
@@ -41,9 +38,8 @@ function HomeNav() {
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
-
                 <svg
-                  className="hidden h-6 w-6"
+                  className={`${isOpenMenu ? "block" : "hidden"} h-6 w-6`}
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
@@ -67,28 +63,46 @@ function HomeNav() {
                 />
               </div>
             </div>
-            <div className=" md:inline inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ms-20 sm:pr-0"></div>
             <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ms-20 sm:pr-0">
-              <Link id="login" to="/login">
-                <button
-                  className="flex items-center text-lg gap-3 rounded-full p-1 text-gray-400 px-4 py-2"
-                  onClick={login}
-                >
-                  <IoLockClosedOutline />
-
-                  <p className="hidden md:block">Kirish</p>
+              <Link to="#footer">
+                <button className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2">
+                  <p className="block sm:hidden md:block text-white">
+                    Bog'lanish
+                  </p>
                 </button>
               </Link>
-              <button
-                className="flex text-lg gap-3 rounded-full bg-gray-800 p-1 text-gray-400 px-4 py-2 btm"
-                onClick={login}
-              >
-                <p className="hidden md:block">Bog'lanish</p>
-              </button>
             </div>
           </div>
         </div>
       </nav>
+      {isOpenMenu && (
+        <div className="sm:hidden" id="mobile-menu">
+          <div className="space-y-1 px-2 pt-2 pb-3">
+            <Link
+              to="/login"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
+            >
+              Kirish
+            </Link>
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+               
+                const topOffset =
+                  contactSection.getBoundingClientRect().top +
+                  window.pageYOffset;
+                window.scrollTo({
+                  top: topOffset,
+                  behavior: "smooth",
+                });
+              }}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
+            >
+              Bog'lanish
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
