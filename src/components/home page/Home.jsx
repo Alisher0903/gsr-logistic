@@ -8,13 +8,19 @@ import {
   asset6,
   asset7,
   asset8,
-  contact,
   container,
   container1,
   container2,
   container3,
   container4,
   container5,
+  person,
+  person2,
+  person3,
+  person4,
+  person5,
+  person6,
+  contactImg,
 } from "../../assets";
 import "./home.css";
 import HomeFooter from "./HomeFooter";
@@ -23,7 +29,7 @@ import { FaFacebookF, FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { config, url } from "../api";
+import { url } from "../api";
 
 const images = [asset1, asset2, asset3, asset4, asset5, asset6, asset7, asset8];
 
@@ -31,38 +37,32 @@ const data = [
   {
     name: "John Carter",
     subTitle: "CEO & Co-Founder",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_fgnWkMiT7CvGFswpZ3MrN-I5FAZ9vRySO4aqlXyGPqqwNNvoAGKuZqIRBbyudYDmApY&usqp=CAU",
+    image: person,
   },
   {
     name: "Sophie Moore",
     subTitle: "CEO & Co-Founder",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCicxernIb5W2jIRbjKwiMOVIit_7XJtczA&s",
+    image: person2,
   },
   {
     name: "Matt Cannon",
     subTitle: "VP of Marketing",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwswSRFJi2lmHPRJPCrlYM0nmsmHUaTBALcQ&s",
+    image: person3,
   },
   {
     name: "Andy Smith",
     subTitle: "VP of Product",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZCldKgmO2Hs0UGk6nRClAjATKoF9x2liYYA&s",
+    image: person4,
   },
   {
     name: "Lily Woods",
     subTitle: "VP of Product",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAgEAyDkw2k2XsoJFX9k44m1YA_pcw2cskIA&s",
+    image: person5,
   },
   {
     name: "Patrick Meyer",
     subTitle: "VP of Product",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR48kgQNS7jHuRO0_X6Qv5PCh-chkE0_E8uRA&s",
+    image: person6,
   },
 ];
 
@@ -109,18 +109,21 @@ function Home({ changeLang }) {
   return (
     <>
       <div
-        className="w-full z-[10000]"
+        className="w-full z-[10000] font-dmSans"
         style={{ backgroundImage: `url(${container})` }}
       >
         <HomeNav changeLang={changeLang} />
-        <div className="flex items-center flex-wrap justify-center min-h-screen bg-cover gap-10 bg-center">
-          <div className="flex flex-col items-start p-8 space-y-4 text-white max-w-md">
-            <h1 className="text-4xl font-bold">Xitoy biz bilan bir qadam.</h1>
-            <p>
-              GSR Logistics jamoamiz 10 yil davomida mijozlarga to'xtovsiz
-              sifatli xizmat ko'rsatib kelishmoqda.
+        <div
+          id="home"
+          className="flex items-center flex-wrap justify-center min-h-screen bg-cover gap-10 bg-center"
+        >
+          <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl">
+            <h1 className="text-6xl font-bold">Xitoy biz bilan bir qadam.</h1>
+            <p className="my-20 text-[18px] font-light">
+              GSR Logistics jamoamiz 10 yil davomida mijozlarga to’xtovsiz
+              sifatli xizmat ko’rsatib kelishmoqda.
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 font-bold text-[18px]">
               <li className="flex items-center">
                 <svg
                   className="w-5 h-5 text-red-500 mr-2"
@@ -247,7 +250,7 @@ function Home({ changeLang }) {
                 </div>
                 <h1 className="text-xl mt-7">
                   {resultData && !isNaN(resultData) && resultData !== ""
-                    ? resultData
+                    ? `$${resultData.toFixed(1)}`
                     : ""}
                 </h1>
               </div>
@@ -266,13 +269,16 @@ function Home({ changeLang }) {
         {/* end section */}
 
         {/* start second section */}
-        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-white">
+        <div
+          id="about"
+          className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
+        >
           <div className="text-center">
-            <h2 className="text-sm font-semibold text-red-600 uppercase">
+            <h2 className="text-xl font-bold text-red-600 uppercase">
               Kompaniyamiz haqida
             </h2>
-            <h1 className="mt-2 text-2xl font-bold text-gray-900">
-              Mijozlarimizning g‘alabasi biz uchun muhim
+            <h1 className="mt-2 text-4xl font-bold text-gray-900">
+              Mijozlarimizning g‘alabasi biz uchun <br /> muhim
             </h1>
           </div>
           <div className="relative mt-8">
@@ -301,45 +307,79 @@ function Home({ changeLang }) {
             Bog‘lanish
           </button>
         </div>
-        {/* end third section */}
+        {/* end second section */}
 
         {/* start forth section */}
         <div className="w-full flex justify-center items-center gap-5 mt-10 flex-col">
-          <h1 className="text-xl font-semibold">Logistika xizmat turlari</h1>
-          <p className="p-2">
+          <h1 className="text-4xl font-bold">Logistika xizmat turlari</h1>
+          <p className="p-2 text-[18px]">
             Logistika turi yukning davlati, masofasiga qarab o’zgaradi
           </p>
           <div className="flex gap-5 p-3 my-5 flex-wrap">
-            <img src={container2} alt="" />
+            <div className="relative text-center flex justify-center">
+              <img src={container2} alt="" />
+              <div className="absolute bottom-20">
+                <h5 className="md:text-[22px] text-lg text-white font-bold">
+                  Yuk mashinasi yordamida
+                </h5>
+                <p className="md:text-[18px] text-sm text-white w-96 mt-2">
+                  Xitoydan yuk olib kelishda 80% holatda yuk mashinalaridan
+                  foydalanamiz.
+                </p>
+              </div>
+            </div>
             <div className="flex flex-col gap-5 flex-wrap">
-              <img src={container3} alt="" />
-              <img src={container4} alt="" />
+              <div className="relative">
+                <img src={container3} alt="" />
+                <div className="absolute top-14 ml-10">
+                  <h5 className="md:text-[22px] text-lg text-white font-bold">
+                    Cargo Havo
+                  </h5>
+                  <p className="md:text-[18px] text-sm text-white w-96 mt-2">
+                    Kichik bo’lgan, juda tez zarur yuklar Avia Cargo orqali
+                    yetkaziladi.
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <img src={container4} alt="" />
+                <div className="absolute top-14 ml-10">
+                  <h5 className="md:text-[22px] text-lg text-white font-bold">
+                    Temir yo’l
+                  </h5>
+                  <p className="md:text-[18px] text-sm text-white w-72 mt-2">
+                    Muddati muhim emas, narxi arzonroq kelishi uchun tanlanadi.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         {/* end fourth section */}
         {/* start five section */}
         <div class="text-center py-20 border-y my-10">
-          <h2 class="text-3xl font-bold mb-4">Yutuqlarimiz</h2>
-          <p class="text-lg mb-12">
+          <h2 class="text-4xl font-bold mb-4">Yutuqlarimiz</h2>
+          <p class="text-lg text-[#6F6F6F] mb-12">
             10 yil davomida biz erishgan raqamlar bilan tanishing
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center">
-              <span class="text-5xl font-bold text-red-600">80%</span>
-              <p class="text-lg mt-2">4 yildan ortiq hamkorlik qilayotgan</p>
+          <div class="grid grid-cols-1 md:place-items-center md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center w-48">
+              <span class="text-[44px] font-bold">
+                80 <span className="text-red-600">%</span>
+              </span>
+              <p class="text-xl mt-2">4 yildan ortiq hamkorlik qilayotgan</p>
             </div>
-            <div class="text-center">
-              <span class="text-5xl font-bold">3.200+</span>
-              <p class="text-lg mt-2">Keltirilgan yuklar</p>
+            <div class="text-center w-48">
+              <span class="text-[44px] font-bold">3.200+</span>
+              <p class="text-xl mt-2">Keltirilgan yuklar</p>
             </div>
-            <div class="text-center">
-              <span class="text-5xl font-bold">125+</span>
-              <p class="text-lg mt-2">Keltirilgan butun yuk (fura/konteyner)</p>
+            <div class="text-center w-48">
+              <span class="text-[44px] font-bold">125+</span>
+              <p class="text-xl mt-2">Keltirilgan butun yuk (fura/konteyner)</p>
             </div>
-            <div class="text-center">
-              <span class="text-5xl font-bold">14 kun</span>
-              <p class="text-lg mt-2">O'rtacha kirish muddati</p>
+            <div class="text-center w-48">
+              <span class="text-[44px] font-bold">14 kun</span>
+              <p class="text-xl mt-2">O'rtacha kirish muddati</p>
             </div>
           </div>
         </div>
@@ -347,18 +387,18 @@ function Home({ changeLang }) {
         {/* six section */}
         <div className="flex flex-col items-center justify-center w-full min-h-screen p-4">
           <div className="w-full bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-bold mb-2">Mijozlarimiz fikri</h2>
-            <p className="text-muted-foreground mb-6">
-              GSR Logistics kompaniyasining doimiy mijozlarining kompaniyamizga
-              bo'lgan ishonchi - bu bizning yutug'imiz.
+            <h2 className="text-4xl font-bold mb-2">Mijozlarimiz fikri</h2>
+            <p className="text-muted-foreground text-lg text-[#6F6F6F] my-6">
+              GSR Logistics kompaniyasining doimiy mijozlarining <br />{" "}
+              kompaniyamizga bo'lgan ishonchi - bu bizning yutug'imiz.
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="flex flex-col align-middle md:flex-row">
               <img
                 src={container5}
                 alt="Customer"
-                className="w-full md:w-2/6 h-96 rounded-lg"
+                className="w-full md:w-2/6 h-[100%] bg-cover bg-center object-cover md:rounded-l-lg rounded-lg"
               />
-              <div className="w-full md:w-1/2 h-96 flex flex-col justify-center bg-gray-50 p-6 rounded-lg">
+              <div className="w-full md:w-1/2 h-full flex flex-col md:py-[11.35rem] justify-center bg-gray-50 p-6 rounded-lg md:rounded-r-lg">
                 <p className="text-xl font-semibold mb-4">
                   “Sifatli xizmat va tezkorlik”
                 </p>
@@ -384,15 +424,15 @@ function Home({ changeLang }) {
         </div>
         {/* end six section */}
         {/*  seven */}
-        <div className="bg-[#fcfcfc] p-4 py-10 my-10">
+        <div id="hamkorlar" className="bg-[#fcfcfc] p-4 py-10 my-10">
           <div className="flex flex-wrap gap-5 w-full px-20 justify-between">
             <div>
-              <h3 className="text-2xl font-bold">Hamkorlarimiz </h3>
-              <h4 className="text-2xl font-bold">1000+</h4>
+              <h3 className="text-4xl font-bold">Hamkorlarimiz </h3>
+              <h4 className="text-4xl font-bold">1000+</h4>
             </div>
             <div>
-              <p className="text-[#b8252a] text-lg">Hamkorlar</p>
-              <p className="text-sm text-[#a3a3a3]">
+              <p className="text-[#b8252a]">Hamkorlar</p>
+              <p className="text-[#a3a3a3] text-lg">
                 Biz va mijoz o’rtasidagi kelishuv havfsizligi <br />
                 ta’minlanadi
               </p>
@@ -406,13 +446,16 @@ function Home({ changeLang }) {
         </div>
         {/* end seven */}
         {/* eight */}
-        <div className="my-10 w-full flex flex-col justify-center">
+        <div
+          id="hodimlar"
+          className="my-10 w-full flex flex-col justify-center"
+        >
           <div>
-            <h1 className="text-3xl font-bold text-center">
+            <h1 className="text-4xl font-bold text-center">
               Xitoy va O’zbekiston bo’ylab jamoalarimiz
             </h1>
-            <div className="w-full sm:w-3/4 md:w-2/6 mx-auto mt-6 p-2">
-              <p className="text-center">
+            <div className="w-full sm:w-3/4 md:w-1/3 mx-auto mt-6 p-2">
+              <p className="text-center text-lg text-[#6F6F6F]">
                 Har bir jamoa vakili o’ziga yarasha kuch va bilimga ega.
                 Mijozlarimiz bilan kompaniyamiz o’rtasidagi munosabatlarni
                 mustaxkamligi jamoaning har bir a’zosining mexnat natijasidur.
@@ -447,13 +490,13 @@ function Home({ changeLang }) {
           className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
           id="contact"
         >
-          <h1 className="text-4xl font-bold text-center">
+          <h1 className="md:text-[72px] text-3xl mt-5 font-bold text-center">
             Baxtli mijozlardan biri bo’ling
           </h1>
-          <p className="mt-2 text-center text-muted-foreground">
+          <p className="my-16 text-center text-lg">
             Ma'lumotlarni to'ldiring va baxtli mijozlar qatoriga qo'shiling.
           </p>
-          <div className="grid w-full max-w-4xl grid-cols-1 gap-8 mt-8 md:grid-cols-2">
+          <div className="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             <form className="space-y-4">
               <div className="flex gap-5">
                 <div className="space-y-2 flex flex-col">
@@ -515,7 +558,7 @@ function Home({ changeLang }) {
             </form>
             <div className="flex items-center justify-center">
               <img
-                src={contact}
+                src={contactImg}
                 alt="Customer Service"
                 className="rounded-lg"
               />
@@ -523,7 +566,7 @@ function Home({ changeLang }) {
             <div className="flex items-center gap-5 justify-between">
               <button
                 onClick={handleClick}
-                className="w-20 rounded-full py-2 bg-red-600 text-white"
+                className="px-4 rounded-full py-3 bg-[#b8252a] text-white"
               >
                 Yuborish
               </button>

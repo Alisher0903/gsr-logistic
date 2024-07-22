@@ -24,7 +24,13 @@ import asset5 from "./Asset 5 1.png";
 import asset6 from "./Asset 6 1.png";
 import asset7 from "./Asset 7 1.png";
 import asset8 from "./Asset 8 1.png";
-import contact from "./Contact.png";
+import person from "./person.png";
+import person2 from "./person2.png";
+import person3 from "./person3.png";
+import person4 from "./person4.png";
+import person5 from "./person5.png";
+import person6 from "./person6.png";
+import contactImg from "./Contact.png";
 
 export {
   kamaz,
@@ -52,5 +58,11 @@ export {
   asset6,
   asset7,
   asset8,
-  contact,
+  person,
+  person2,
+  person3,
+  person4,
+  person5,
+  person6,
+  contactImg,
 };

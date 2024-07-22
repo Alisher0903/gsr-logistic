@@ -6,6 +6,8 @@ import { config, url } from "../api";
 import { t } from "i18next";
 import DeleteModal from "../product/deleteModal";
 import { Input } from "react-select/animated";
+import ReactPaginate from "react-paginate";
+import { useStateManager } from "react-select";
 
 const Result = () => {
   const [data, setData] = useState([]);
@@ -20,22 +22,26 @@ const Result = () => {
     priceCube: 0,
   });
 
-  const getContact = async () => {
+  const getContact = async (page) => {
     try {
-      const { data } = await axios.get(`${url}category`, config);
+      const { data } = await axios.get(
+        `${url}category?page=${page}&size=10`,
+        config
+      );
       setData(data.body);
     } catch (error) {
       toast.error(error.message);
     }
   };
 
+  const handleClick = (e) => {
+    getContact(e.selected);
+  };
+
   const handleDelete = async () => {
     try {
-      const { data } = await axios.delete(
-        `${url}category?id=${deleteCategoryId}`,
-        config
-      );
-      getContact();
+      await axios.delete(`${url}category?id=${deleteCategoryId}`, config);
+      getContact(0);
     } catch (error) {
       toast.error(error.message);
     }
@@ -48,22 +54,22 @@ const Result = () => {
         addCategoryData,
         config
       );
-      getContact();
+      getContact(0);
       toast.success(data.message);
       setAddModal(false);
     } catch (error) {
       toast.error(error.message);
     }
   };
-  
+
   const editCategory = async () => {
     try {
-      const { data } = await axios.post(
+      const { data } = await axios.put(
         `${url}category?id=${category}`,
         addCategoryData,
         config
       );
-      getContact();
+      getContact(0);
       toast.success(data.message);
       setEditModal(false);
     } catch (error) {
@@ -72,13 +78,13 @@ const Result = () => {
   };
 
   useEffect(() => {
-    getContact();
+    getContact(0);
   }, []);
 
   return (
     <>
       <NavBar result={"border-b-red-600 border-b text-slate-900"} />
-      <div className="background flex flex-col items-center min-h-screen pt-36 px-10 mx-auto">
+      <div className="background flex flex-col items-center min-h-screen py-20 px-10 mx-auto">
         <button
           onClick={() => setAddModal(!addModal)}
           className="bg-green-700 tex-white  px-5 py-2 text-white rounded-lg"
@@ -103,41 +109,42 @@ const Result = () => {
             </tr>
           </thead>
           <tbody className="bg-white text-center rounded-b-2xl text-lg">
-            {data.map((item, i) => (
-              <tr className="border-b">
-                <td scope="col" className="px-6 py-3">
-                  {i + 1}
-                </td>
-                <td scope="col" className="px-6 py-3">
-                  {item.minKg} - {item.maxKg} kg
-                </td>
-                <td scope="col" className="px-6 py-3">
-                  {item.priceCube}
-                </td>
-                <td>
-                  <button
-                    onClick={() => {
-                      setCategory(item);
-                      setEditModal(!editModal);
-                    }}
-                    className="px-4 py-2 rounded-xl bg-yellow-500 text-white"
-                  >
-                    {t("edit")}
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onClick={() => {
-                      setDeleteCategodyId(item.id);
-                      setDeleteModal(true);
-                    }}
-                    className="px-4 py-2 rounded-xl bg-red-500 text-white"
-                  >
-                    {t("delete")}
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {data.object &&
+              data.object.map((item, i) => (
+                <tr key={i} className="border-b">
+                  <td scope="col" className="px-6 py-3">
+                    {item.id}
+                  </td>
+                  <td scope="col" className="px-6 py-3">
+                    {item.minKg} - {item.maxKg} kg
+                  </td>
+                  <td scope="col" className="px-6 py-3">
+                    {item.priceCube}
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        setCategory(item.id);
+                        setEditModal(!editModal);
+                      }}
+                      className="px-4 py-2 rounded-xl bg-yellow-500 text-white"
+                    >
+                      {t("edit")}
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        setDeleteCategodyId(item.id);
+                        setDeleteModal(true);
+                      }}
+                      className="px-4 py-2 rounded-xl bg-red-500 text-white"
+                    >
+                      {t("delete")}
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
         <DeleteModal
@@ -251,13 +258,25 @@ const Result = () => {
                     {t("close")}
                   </button>
                   <button onClick={editCategory} className="btmn ">
-                    {t("add")}
+                    {t("edit")}
                   </button>
                 </div>
               </div>
             </div>
           </div>
         )}
+        <ReactPaginate
+          className="navigation"
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handleClick}
+          pageRangeDisplayed={5}
+          pageCount={data.totalPage}
+          previousLabel="<"
+          renderOnZeroPageCount={null}
+          nextClassName="nextBtn"
+          previousClassName="prevBtn"
+        />
       </div>
     </>
   );

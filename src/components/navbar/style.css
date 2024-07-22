@@ -1,10 +1,22 @@
-@media only screen and (max-width:350px){
-    .media-nav{
-        width: 260px !important;
-    }
+@media only screen and (max-width: 350px) {
+  .media-nav {
+    width: 260px !important;
+  }
 }
-@media only screen and (max-width:300px){
-    .media-nav{
-        width: 230px !important;
-    }
+@media only screen and (max-width: 300px) {
+  .media-nav {
+    width: 230px !important;
+  }
+}
+
+.bg-image-1 {
+  background-image: url("../../assets/Container\ \(2\).png");
+}
+
+.bg-image-2 {
+  background-image: url("../../assets/Container\ \(3\).png");
+}
+
+.bg-image-3 {
+  background-image: url("../../assets/Container\ \(4\).png");
 }
