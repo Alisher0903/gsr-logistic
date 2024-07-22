@@ -6,6 +6,7 @@ import { IoLockClosedOutline } from "react-icons/io5";
 
 function HomeNav() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [activeItem, setActiveItem] = useState("home");
 
   const openMenu = () => setIsOpenMenu(!isOpenMenu);
 
@@ -29,6 +30,7 @@ function HomeNav() {
   ];
 
   const navigateItem = (id) => {
+    setActiveItem(id);
     const contactSection = document.getElementById(id);
     const topOffset =
       contactSection.getBoundingClientRect().top + window.pageYOffset;
@@ -41,7 +43,7 @@ function HomeNav() {
 
   return (
     <div>
-      <nav className="fixed top-0 w-full">
+      <nav className="top-0 w-full">
         <div className="mx-auto sm:px-6 lg:px-10">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -97,7 +99,11 @@ function HomeNav() {
                   <button
                     key={index}
                     onClick={() => navigateItem(item.navigate)}
-                    className="text-gray-900  hover:border-gray-900 transition duration-150 ease-out hover:ease-in px-6 py-2 rounded-md text-sm font-bold"
+                    className={`${
+                      activeItem === item.navigate
+                        ? "text-blue-500 border-b-2 border-blue-500"
+                        : "text-white"
+                    } hover:border-gray-900 transition duration-150 ease-out hover:ease-in px-6 py-2 rounded-md text-sm font-bold`}
                   >
                     {item.label}
                   </button>
@@ -122,6 +128,7 @@ function HomeNav() {
                     top: topOffset,
                     behavior: "smooth",
                   });
+                  setActiveItem("contact");
                 }}
                 className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2"
               >
@@ -161,7 +168,11 @@ function HomeNav() {
                 <button
                   key={index}
                   onClick={() => navigateItem(item.navigate)}
-                  className="block px-4 py-2 mt-2 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-300 w-full"
+                  className={`${
+                    activeItem === item.navigate
+                      ? "text-blue-500 bg-gray-200"
+                      : "text-gray-900"
+                  } block px-4 py-2 mt-2 text-sm font-medium rounded-lg hover:bg-gray-300 w-full`}
                 >
                   {item.label}
                 </button>

@@ -117,7 +117,7 @@ function Home({ changeLang }) {
           id="home"
           className="flex items-center flex-wrap justify-center min-h-screen bg-cover gap-10 bg-center"
         >
-          <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl mt-10">
+          <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl">
             <h1 className="text-6xl font-bold">Xitoy biz bilan bir qadam.</h1>
             <p className="my-20 text-[18px] font-light">
               GSR Logistics jamoamiz 10 yil davomida mijozlarga to’xtovsiz
@@ -180,7 +180,7 @@ function Home({ changeLang }) {
               </li>
             </ul>
           </div>
-          <div className="p-8 bg-white rounded-lg shadow-lg max-w-md mt-20">
+          <div className="p-8 bg-white rounded-lg shadow-lg max-w-md">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="volume">
@@ -264,7 +264,7 @@ function Home({ changeLang }) {
           </div>
         </div>
       </div>
-      <div className="w-full pt-20 overflow-x-hidden mt-10">
+      <div className="w-full pt-20 overflow-x-hidden ">
         {/* first section */}
         {/* end section */}
 
@@ -273,7 +273,7 @@ function Home({ changeLang }) {
           id="about"
           className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
         >
-          <div className="text-center mt-10">
+          <div className="text-center">
             <h2 className="text-xl font-bold text-red-600 uppercase">
               Kompaniyamiz haqida
             </h2>
@@ -310,7 +310,7 @@ function Home({ changeLang }) {
         {/* end second section */}
 
         {/* start forth section */}
-        <div className="w-full flex justify-center items-center gap-5 mt-10 flex-col">
+        <div className="w-full flex justify-center items-center gap-5  flex-col">
           <h1 className="text-4xl font-bold">Logistika xizmat turlari</h1>
           <p className="p-2 text-[18px]">
             Logistika turi yukning davlati, masofasiga qarab o’zgaradi
@@ -567,18 +567,19 @@ function Home({ changeLang }) {
             <div className="flex items-center gap-5 justify-between">
               <button
                 onClick={handleClick}
-                className="px-4 rounded-full py-3 bg-[#b8252a] text-white"
+                className="px-4 rounded-full py-3 bg-[#b8252a] text-white transition-colors duration-200 ease-in-out transform hover:bg-[#a71f24] active:bg-[#90181d]  active:scale-95"
               >
                 Yuborish
               </button>
+
               <div className="flex gap-3 mt-3">
                 <a
                   href="https://www.instagram.com/gsrgroup.uz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <AiFillInstagram color="#8b8aa6" />
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <AiFillInstagram className="text-[#8b8aa6] hover:text-[#e4405f]" />
                   </div>
                 </a>
 
@@ -587,8 +588,8 @@ function Home({ changeLang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <FaTiktok color="#8b8aa6" />
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaTiktok className="text-[#8b8aa6] hover:text-[#e4405f]" />
                   </div>
                 </a>
                 <a
@@ -596,8 +597,8 @@ function Home({ changeLang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <FaTelegram color="#8b8aa6" />
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaTelegram className="text-[#8b8aa6] hover:text-[#e4405f]" />
                   </div>
                 </a>
                 <a
@@ -605,8 +606,8 @@ function Home({ changeLang }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="p-2 rounded bg-[#f2f2f2]">
-                    <FaYoutube color="#8b8aa6" />
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaYoutube className="text-[#8b8aa6] hover:text-[#e4405f]" />
                   </div>
                 </a>
               </div>
