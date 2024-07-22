@@ -285,7 +285,19 @@ function Home({ changeLang }) {
               <PlayIcon className="w-8 h-8 text-gray-900" />
             </button>
           </div>
-          <button className="mt-8 bg-red-600 text-white rounded-full px-6 py-2">
+          <button
+            onClick={() => {
+              const contactSection = document.getElementById("contact");
+
+              const topOffset =
+                contactSection.getBoundingClientRect().top + window.pageYOffset;
+              window.scrollTo({
+                top: topOffset,
+                behavior: "smooth",
+              });
+            }}
+            className="mt-8 bg-red-600 text-white rounded-full px-6 py-2"
+          >
             Bog‘lanish
           </button>
         </div>

@@ -64,13 +64,24 @@ function HomeNav() {
               </div>
             </div>
             <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ms-20 sm:pr-0">
-              <Link to="#footer">
-                <button className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2">
-                  <p className="block sm:hidden md:block text-white">
-                    Bog'lanish
-                  </p>
-                </button>
-              </Link>
+              <button
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+
+                  const topOffset =
+                    contactSection.getBoundingClientRect().top +
+                    window.pageYOffset;
+                    window.scrollTo({
+                    top: topOffset,
+                    behavior: "smooth",
+                  });
+                }}
+                className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2"
+              >
+                <p className="block sm:hidden md:block text-white">
+                  Bog'lanish
+                </p>
+              </button>
             </div>
           </div>
         </div>
@@ -87,7 +98,7 @@ function HomeNav() {
             <button
               onClick={() => {
                 const contactSection = document.getElementById("contact");
-               
+
                 const topOffset =
                   contactSection.getBoundingClientRect().top +
                   window.pageYOffset;
