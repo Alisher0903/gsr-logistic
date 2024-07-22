@@ -4,40 +4,10 @@ import "../home page/home.css";
 import { logo1 } from "../../assets";
 import { IoLockClosedOutline } from "react-icons/io5";
 
-const navItem = [
-  {
-    label: "Bosh sahifa",
-    navigate: "home",
-  },
-  {
-    label: "Biz haqimizda",
-    navigate: "about",
-  },
-  {
-    label: "Hamkorlarimiz",
-    navigate: "hamkorlar",
-  },
-  {
-    label: "Hodimlar",
-    navigate: "hodimlar",
-  },
-];
-
 function HomeNav() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const openMenu = () => setIsOpenMenu(!isOpenMenu);
-
-  const navigateItem = (id) => {
-    const contactSection = document.getElementById(id);
-
-    const topOffset =
-      contactSection.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({
-      top: topOffset,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div>
@@ -84,8 +54,7 @@ function HomeNav() {
                 </svg>
               </button>
             </div>
-
-            <div className="flex items-center justify-center sm:items-center sm:justify-start">
+            <div className="flex flex-1 items-center justify-center sm:items-center sm:justify-start">
               <div className="flex flex-shrink-0 items-center">
                 <img
                   className="h-10 w-auto hidden sm:inline"
@@ -94,18 +63,8 @@ function HomeNav() {
                 />
               </div>
             </div>
-            <ul className="hidden sm:hidden md:flex space-x-8 text-white">
-              {navItem.map((item) => (
-                <li
-                  onClick={() => navigateItem(item.navigate)}
-                  className="cursor-pointer"
-                >
-                  {item.label}
-                </li>
-              ))}
-            </ul>
-            <div className="inset-y-0 right-0 space-x-5 md:flex items-center pr-2 sm:hidden hidden sm:inset-auto sm:ms-20 sm:pr-0">
-              <Link
+            <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ms-20 sm:pr-0">
+            <Link
                 to="/login"
                 className="px-3 py-2 flex items-center gap-3 rounded-md text-base font-medium text-white"
               >
@@ -113,7 +72,17 @@ function HomeNav() {
                 Kirish
               </Link>
               <button
-                onClick={() => navigateItem("contact")}
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+
+                  const topOffset =
+                    contactSection.getBoundingClientRect().top +
+                    window.pageYOffset;
+                    window.scrollTo({
+                    top: topOffset,
+                    behavior: "smooth",
+                  });
+                }}
                 className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2"
               >
                 <p className="block sm:hidden md:block text-white">
@@ -125,22 +94,32 @@ function HomeNav() {
         </div>
       </nav>
       {isOpenMenu && (
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="space-y-1 px-2 pt-2 pb-3">
-            <Link
-              to="/login"
-              className="px-3 py-2 flex items-center gap-3 rounded-md text-base font-medium text-white bg-gray-700"
-            >
-              <IoLockClosedOutline />
-            </Link>
-            <button
-              onClick={() => navItem("contact")}
-              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
-            >
-              Bog'lanish
-            </button>
-          </div>
-        </div>
+        <div>Hello</div>
+        // <div className="sm:hidden" id="mobile-menu">
+        //   <div className="space-y-1 px-2 pt-2 pb-3">
+        //     <Link
+        //       to="/login"
+        //       className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
+        //     >
+        //       Kirish
+        //     </Link>
+        //     <button
+        //       onClick={() => {
+        //         const contactSection = document.getElementById("contact");
+        //         const topOffset =
+        //           contactSection.getBoundingClientRect().top +
+        //           window.pageYOffset;
+        //           window.scrollTo({
+        //           top: topOffset,
+        //           behavior: "smooth",
+        //         });
+        //       }}
+        //       className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
+        //     >
+        //       Bog'lanish
+        //     </button>
+        //   </div>
+        // </div>
       )}
     </div>
   );
