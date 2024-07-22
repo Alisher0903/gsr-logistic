@@ -88,7 +88,7 @@ function Home({ changeLang }) {
       const { data } = await axios.post(`${url}contact`, contact);
       toast.success(data.message);
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Iltimos ma'lumotlarni to'ldiring !");
     }
   };
 
@@ -101,7 +101,7 @@ function Home({ changeLang }) {
       });
       setResultData(data.body);
     } catch (error) {
-      // toast.error(error.message);
+      toast.error("Iltimos ma'lumotlarni to'ldiring !");
       setResultData();
     }
   };
@@ -117,7 +117,7 @@ function Home({ changeLang }) {
           id="home"
           className="flex items-center flex-wrap justify-center min-h-screen bg-cover gap-10 bg-center"
         >
-          <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl">
+          <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl mt-10">
             <h1 className="text-6xl font-bold">Xitoy biz bilan bir qadam.</h1>
             <p className="my-20 text-[18px] font-light">
               GSR Logistics jamoamiz 10 yil davomida mijozlarga to’xtovsiz
@@ -180,7 +180,7 @@ function Home({ changeLang }) {
               </li>
             </ul>
           </div>
-          <div className="p-8 bg-white rounded-lg shadow-lg max-w-md">
+          <div className="p-8 bg-white rounded-lg shadow-lg max-w-md mt-20">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="volume">
@@ -264,7 +264,7 @@ function Home({ changeLang }) {
           </div>
         </div>
       </div>
-      <div className="w-full pt-20 overflow-x-hidden">
+      <div className="w-full pt-20 overflow-x-hidden mt-10">
         {/* first section */}
         {/* end section */}
 
@@ -273,7 +273,7 @@ function Home({ changeLang }) {
           id="about"
           className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
         >
-          <div className="text-center">
+          <div className="text-center mt-10">
             <h2 className="text-xl font-bold text-red-600 uppercase">
               Kompaniyamiz haqida
             </h2>
@@ -357,7 +357,7 @@ function Home({ changeLang }) {
         </div>
         {/* end fourth section */}
         {/* start five section */}
-        <div class="text-center py-20 border-y my-10">
+        <div class="text-center py-20 p-20 border-y my-10">
           <h2 class="text-4xl font-bold mb-4">Yutuqlarimiz</h2>
           <p class="text-lg text-[#6F6F6F] mb-12">
             10 yil davomida biz erishgan raqamlar bilan tanishing
@@ -365,7 +365,7 @@ function Home({ changeLang }) {
           <div class="grid grid-cols-1 md:place-items-center md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="text-center w-48">
               <span class="text-[44px] font-bold">
-                80 <span className="text-red-600">%</span>
+                80 <span class="text-red-600">%</span>
               </span>
               <p class="text-xl mt-2">4 yildan ortiq hamkorlik qilayotgan</p>
             </div>
@@ -383,6 +383,7 @@ function Home({ changeLang }) {
             </div>
           </div>
         </div>
+
         {/* end five section */}
         {/* six section */}
         <div className="flex flex-col items-center justify-center w-full min-h-screen p-4">
@@ -403,7 +404,7 @@ function Home({ changeLang }) {
                   “Sifatli xizmat va tezkorlik”
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  Gsr Logistics kompaniyasi Xitoydan topishdan tashqari to
+                  GSR Logistics kompaniyasi Xitoydan topishdan tashqari to
                   toshkenda qo'limizga kelib tushmunga, har bir bosqichda fizni
                   foydamizni o'ylab ish yuritishadi, shu sababdan doim
                   ishonamiz.
@@ -424,7 +425,7 @@ function Home({ changeLang }) {
         </div>
         {/* end six section */}
         {/*  seven */}
-        <div id="hamkorlar" className="bg-[#fcfcfc] p-4 py-10 my-10">
+        <div id="hamkorlar" className="bg-[#fcfcfc] p-4 py-10 my-10 mt-22">
           <div className="flex flex-wrap gap-5 w-full px-20 justify-between">
             <div>
               <h3 className="text-4xl font-bold">Hamkorlarimiz </h3>
@@ -450,7 +451,7 @@ function Home({ changeLang }) {
           id="hodimlar"
           className="my-10 w-full flex flex-col justify-center"
         >
-          <div>
+          <div className="mt-20">
             <h1 className="text-4xl font-bold text-center">
               Xitoy va O’zbekiston bo’ylab jamoalarimiz
             </h1>

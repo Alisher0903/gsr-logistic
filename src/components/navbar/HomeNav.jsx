@@ -9,9 +9,39 @@ function HomeNav() {
 
   const openMenu = () => setIsOpenMenu(!isOpenMenu);
 
+  const navItem = [
+    {
+      label: "Bosh sahifa",
+      navigate: "home",
+    },
+    {
+      label: "Biz haqimizda",
+      navigate: "about",
+    },
+    {
+      label: "Hamkorlarimiz",
+      navigate: "hamkorlar",
+    },
+    {
+      label: "Hodimlar",
+      navigate: "hodimlar",
+    },
+  ];
+
+  const navigateItem = (id) => {
+    const contactSection = document.getElementById(id);
+    const topOffset =
+      contactSection.getBoundingClientRect().top + window.pageYOffset;
+    window.scrollTo({
+      top: topOffset,
+      behavior: "smooth",
+    });
+    setIsOpenMenu(false);
+  };
+
   return (
     <div>
-      <nav className="z-50 w-full">
+      <nav className="fixed top-0 w-full">
         <div className="mx-auto sm:px-6 lg:px-10">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -62,9 +92,20 @@ function HomeNav() {
                   alt="Your Company"
                 />
               </div>
+              <div className="hidden text-center sm:flex sm:ml-6 sm:space-x-10">
+                {navItem.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => navigateItem(item.navigate)}
+                    className="text-gray-900  hover:border-gray-900 transition duration-150 ease-out hover:ease-in px-6 py-2 rounded-md text-sm font-bold"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ms-20 sm:pr-0">
-            <Link
+            <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <Link
                 to="/login"
                 className="px-3 py-2 flex items-center gap-3 rounded-md text-base font-medium text-white"
               >
@@ -74,52 +115,60 @@ function HomeNav() {
               <button
                 onClick={() => {
                   const contactSection = document.getElementById("contact");
-
                   const topOffset =
                     contactSection.getBoundingClientRect().top +
                     window.pageYOffset;
-                    window.scrollTo({
+                  window.scrollTo({
                     top: topOffset,
                     behavior: "smooth",
                   });
                 }}
                 className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2"
               >
-                <p className="block sm:hidden md:block text-white">
-                  Bog'lanish
-                </p>
+                <p className="block sm:hidden md:block text-white">Bog'lanish</p>
               </button>
             </div>
           </div>
         </div>
       </nav>
       {isOpenMenu && (
-        <div>Hello</div>
-        // <div className="sm:hidden" id="mobile-menu">
-        //   <div className="space-y-1 px-2 pt-2 pb-3">
-        //     <Link
-        //       to="/login"
-        //       className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
-        //     >
-        //       Kirish
-        //     </Link>
-        //     <button
-        //       onClick={() => {
-        //         const contactSection = document.getElementById("contact");
-        //         const topOffset =
-        //           contactSection.getBoundingClientRect().top +
-        //           window.pageYOffset;
-        //           window.scrollTo({
-        //           top: topOffset,
-        //           behavior: "smooth",
-        //         });
-        //       }}
-        //       className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-gray-700"
-        //     >
-        //       Bog'lanish
-        //     </button>
-        //   </div>
-        // </div>
+        <div className="fixed inset-0 z-40 bg-gray-800 bg-opacity-75">
+          <div className="fixed inset-y-0 left-0 flex flex-col bg-white w-64 p-4 z-50">
+            <button
+              type="button"
+              onClick={openMenu}
+              className="self-end p-2"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <nav className="mt-4">
+              {navItem.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => navigateItem(item.navigate)}
+                  className="block px-4 py-2 mt-2 text-sm font-medium text-gray-900 rounded-lg hover:bg-gray-300 w-full"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
       )}
     </div>
   );
