@@ -117,7 +117,7 @@ function Home({ changeLang }) {
   return (
     <>
       <div
-        className="w-full z-[10000] font-dmSans"
+        className="w-full z-[10000] top-5 font-dmSans"
         style={{ backgroundImage: `url(${container})` }}
       >
         <HomeNav changeLang={changeLang} />

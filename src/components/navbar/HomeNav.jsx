@@ -52,7 +52,7 @@ function HomeNav() {
   };
 
   return (
-    <div>
+    <div className="top-4 relative">
       <nav className="top-0 w-full">
         <div className="mx-auto sm:px-6 lg:px-10">
           <div className="relative flex h-16 items-center justify-between">
