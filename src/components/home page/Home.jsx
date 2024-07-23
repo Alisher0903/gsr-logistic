@@ -30,6 +30,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { url } from "../api";
+import { t } from "i18next";
 
 const images = [asset1, asset2, asset3, asset4, asset5, asset6, asset7, asset8];
 
@@ -118,10 +119,9 @@ function Home({ changeLang }) {
           className="flex items-center flex-wrap justify-center min-h-screen bg-cover gap-10 bg-center"
         >
           <div className="flex flex-col items-start p-8 space-y-10 text-white max-w-xl">
-            <h1 className="text-6xl font-bold">Xitoy biz bilan bir qadam.</h1>
+            <h1 className="text-6xl font-bold">{t("home")}</h1>
             <p className="my-20 text-[18px] font-light">
-              GSR Logistics jamoamiz 10 yil davomida mijozlarga to’xtovsiz
-              sifatli xizmat ko’rsatib kelishmoqda.
+              {t("info")}
             </p>
             <ul className="space-y-2 font-bold text-[18px]">
               <li className="flex items-center">
@@ -140,7 +140,7 @@ function Home({ changeLang }) {
                   <circle cx="12" cy="12" r="10" />
                   <path d="m9 12 2 2 4-4" />
                 </svg>
-                Istalgan turdagi yuklaringizni topamiz.
+                {t('yuklar')}
               </li>
               <li className="flex items-center">
                 <svg
@@ -158,7 +158,7 @@ function Home({ changeLang }) {
                   <circle cx="12" cy="12" r="10" />
                   <path d="m9 12 2 2 4-4" />
                 </svg>
-                Hat hujjatlar hamda savdo tartiblarida ko'maklashamiz.
+                {t("hujjat")}
               </li>
               <li className="flex items-center">
                 <svg
@@ -176,7 +176,7 @@ function Home({ changeLang }) {
                   <circle cx="12" cy="12" r="10" />
                   <path d="m9 12 2 2 4-4" />
                 </svg>
-                Yuklaringiz to'liq kafolatlangan holda keladi.
+                {t("yuklar")}
               </li>
             </ul>
           </div>
@@ -184,7 +184,7 @@ function Home({ changeLang }) {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="volume">
-                  Yuk o'lchami
+                  {t("razmer")}
                 </label>
                 <input
                   onChange={(e) =>
@@ -192,25 +192,25 @@ function Home({ changeLang }) {
                   }
                   className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                   id="volume"
-                  placeholder="m3"
+                  placeholder={t("m3")}
                   type="number"
                 />
               </div>
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="weight">
-                  Og'irligi
+                  {t("ogirlik")}
                 </label>
                 <input
                   onChange={(e) => setResult({ ...result, kg: e.target.value })}
                   className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                   id="weight"
-                  placeholder="kg"
+                  placeholder={t("kg")}
                   type="number"
                 />
               </div>
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="from">
-                  Qayerdan
+                  {t("qayerga")}
                 </label>
                 <input
                   onChange={(e) =>
@@ -218,12 +218,12 @@ function Home({ changeLang }) {
                   }
                   className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                   id="from"
-                  placeholder="Yiwu"
+                  placeholder={t("qayer")}
                 />
               </div>
               <div className="space-y-2">
                 <label className="font-semibold" htmlFor="to">
-                  Qayerga
+                  {t("qayerdan")}
                 </label>
                 <input
                   onChange={(e) =>
@@ -231,13 +231,13 @@ function Home({ changeLang }) {
                   }
                   className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                   id="to"
-                  placeholder="Tashkent"
+                  placeholder={t("Toshkent")}
                 />
               </div>
               <div className="flex gap-10 items-center">
                 <div className="col-span-2 flex flex-col space-y-2">
                   <label className="font-semibold" htmlFor="type">
-                    Yuk turi
+                    {t("qancha")}
                   </label>
                   <input
                     onChange={(e) =>
@@ -245,7 +245,7 @@ function Home({ changeLang }) {
                     }
                     className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                     id="type"
-                    placeholder="Xo'jalik mollari"
+                    placeholder={t("mahsulot")}
                   />
                 </div>
                 <h1 className="text-xl mt-7">
@@ -259,7 +259,7 @@ function Home({ changeLang }) {
               onClick={getResult}
               className="w-full rounded-full py-2 mt-4 bg-red-500 text-white"
             >
-              Yukni hisoblash
+              {t("xisoblash")}
             </button>
           </div>
         </div>
@@ -275,10 +275,10 @@ function Home({ changeLang }) {
         >
           <div className="text-center">
             <h2 className="text-xl font-bold text-red-600 uppercase">
-              Kompaniyamiz haqida
+              {t("komponiya")}
             </h2>
             <h1 className="mt-2 text-4xl font-bold text-gray-900">
-              Mijozlarimizning g‘alabasi biz uchun <br /> muhim
+              {t("mijozlar")} <br /> {t("muhim")}
             </h1>
           </div>
           <div className="relative mt-8">
@@ -304,27 +304,26 @@ function Home({ changeLang }) {
             }}
             className="mt-8 bg-red-600 text-white rounded-full px-6 py-2"
           >
-            Bog‘lanish
+            {t('boglanish')}
           </button>
         </div>
         {/* end second section */}
 
         {/* start forth section */}
         <div className="w-full flex justify-center items-center gap-5  flex-col">
-          <h1 className="text-4xl font-bold">Logistika xizmat turlari</h1>
+          <h1 className="text-4xl font-bold">{t("xizmat_turi")}</h1>
           <p className="p-2 text-[18px]">
-            Logistika turi yukning davlati, masofasiga qarab o’zgaradi
+            {t("yuk_davlati")}
           </p>
           <div className="flex gap-5 p-3 my-5 flex-wrap">
             <div className="relative text-center flex justify-center">
               <img src={container2} alt="" />
               <div className="absolute bottom-20">
                 <h5 className="md:text-[22px] text-lg text-white font-bold">
-                  Yuk mashinasi yordamida
+                  {t("yuk_mashinasi")}
                 </h5>
                 <p className="md:text-[18px] text-sm text-white w-96 mt-2">
-                  Xitoydan yuk olib kelishda 80% holatda yuk mashinalaridan
-                  foydalanamiz.
+                  {t("xitoydan_yuk")}
                 </p>
               </div>
             </div>
@@ -333,11 +332,10 @@ function Home({ changeLang }) {
                 <img src={container3} alt="" />
                 <div className="absolute top-14 ml-10">
                   <h5 className="md:text-[22px] text-lg text-white font-bold">
-                    Cargo Havo
+                    {t("cargo")}
                   </h5>
                   <p className="md:text-[18px] text-sm text-white w-96 mt-2">
-                    Kichik bo’lgan, juda tez zarur yuklar Avia Cargo orqali
-                    yetkaziladi.
+                    {t("avia_cargo")}
                   </p>
                 </div>
               </div>
@@ -345,10 +343,10 @@ function Home({ changeLang }) {
                 <img src={container4} alt="" />
                 <div className="absolute top-14 ml-10">
                   <h5 className="md:text-[22px] text-lg text-white font-bold">
-                    Temir yo’l
+                    {t("temir_yul")}
                   </h5>
                   <p className="md:text-[18px] text-sm text-white w-72 mt-2">
-                    Muddati muhim emas, narxi arzonroq kelishi uchun tanlanadi.
+                    {t("narxi_arzon")}
                   </p>
                 </div>
               </div>
@@ -405,7 +403,7 @@ function Home({ changeLang }) {
                 </p>
                 <p className="text-muted-foreground mb-4">
                   GSR Logistics kompaniyasi Xitoydan topishdan tashqari to
-                  toshkenda qo'limizga kelib tushmunga, har bir bosqichda fizni
+                  toshkenda qo'limizga kelib tushgunga, har bir bosqichda bizni
                   foydamizni o'ylab ish yuritishadi, shu sababdan doim
                   ishonamiz.
                 </p>

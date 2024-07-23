@@ -4,6 +4,7 @@ import "./home.css";
 import { useTranslation } from "react-i18next";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
+import { FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa";
 
 function HomeFooter() {
   const { t } = useTranslation();
@@ -22,18 +23,42 @@ function HomeFooter() {
           <h1 className="text-lg">Obuna bo’ling</h1>
           <div className="flex items-center gap-5 justify-between">
             <div className="flex gap-3 mt-3">
-              <div className="p-2 rounded bg-[#f2f2f2]">
-                <FaFacebookF color="#8b8aa6" />
-              </div>
-              <div className="p-2 rounded bg-[#f2f2f2]">
-                <FaTwitter color="#8b8aa6" />
-              </div>
-              <div className="p-2 rounded bg-[#f2f2f2]">
-                <AiFillInstagram color="#8b8aa6" />
-              </div>
-              <div className="p-2 rounded bg-[#f2f2f2]">
-                <FaLinkedinIn color="#8b8aa6" />
-              </div>
+            <a
+                  href="https://t.me/gsrgroup_uz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaTelegram className="text-[#8b8aa6] hover:text-[#e4405f]" />
+                  </div>
+                </a>
+                <a
+                  href="https://youtube.com/@gsrgroupuz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaYoutube className="text-[#8b8aa6] hover:text-[#e4405f]" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.instagram.com/gsrgroup.uz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <AiFillInstagram className="text-[#8b8aa6] hover:text-[#e4405f]" />
+                  </div>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@gsrgroupuz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="p-2 rounded bg-[#f2f2f2] transition-transform duration-200 ease-in-out transform hover:bg-gray-300 hover:scale-110">
+                    <FaTiktok className="text-[#8b8aa6] hover:text-[#e4405f]" />
+                  </div>
+                </a>
             </div>
           </div>
         </div>
