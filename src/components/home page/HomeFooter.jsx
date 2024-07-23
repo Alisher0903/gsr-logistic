@@ -5,9 +5,11 @@ import { useTranslation } from "react-i18next";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { languageStore } from "../../locale/languageStore";
 
 function HomeFooter() {
   const { t } = useTranslation();
+  const {setSelectedLanguage} = languageStore()
   return (
     <div className=" w-full flex flex-col bg-[#fcfcfc]">
       <div className="flex md:flex-row flex-col py-10 items-center px-20 ">
@@ -20,7 +22,7 @@ function HomeFooter() {
         </div>
 
         <div>
-          <h1 className="text-lg">Obuna bo’ling</h1>
+          <h1 className="text-lg">{t('ObunaBuling')}</h1>
           <div className="flex items-center gap-5 justify-between">
             <div className="flex gap-3 mt-3">
             <a

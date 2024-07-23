@@ -23,21 +23,29 @@ import Cassir from "./components/casser/Cassir";
 import ViewMoreW from "./components/werHouse/ViewMore";
 import Result from "./components/result";
 import Contact from "./components/contact";
+import translateUz from "./locale/translateUz";
+import { languageStore } from "./locale/languageStore";
 
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: translateEn },
     ru: { translation: translateRu },
+    uz: { translation: translateUz }
   },
   lng: "en",
   fallbackLng: "en",
 });
 
+
+export const changeLanguage = (value, setSelectedLanguage) => {
+  const newLanguage = value;
+  setSelectedLanguage(newLanguage);
+  localStorage.setItem("selectedLanguage", newLanguage); // Tanlangan tilni localStorage ga saqlash
+};
+
+
 function App() {
-  const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    // localStorage dan tanlangan tilni olish
-    return localStorage.getItem("selectedLanguage") || "en";
-  });
+  const {selectedLanguage} = languageStore()
   const role = sessionStorage.getItem("role")
     ? sessionStorage.getItem("role")
     : "";
@@ -48,12 +56,6 @@ function App() {
   const [cashierUrl, setCashierUrl] = useState(`${role}`);
 
   const location = useLocation();
-
-  const changeLanguage = (e) => {
-    const newLanguage = e.target.value;
-    setSelectedLanguage(newLanguage);
-    localStorage.setItem("selectedLanguage", newLanguage); // Tanlangan tilni localStorage ga saqlash
-  };
 
   // Component ilk render bo'lganda ishlaydigan useEffect
   useEffect(() => {

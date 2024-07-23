@@ -356,28 +356,28 @@ function Home({ changeLang }) {
         {/* end fourth section */}
         {/* start five section */}
         <div class="text-center py-20 p-20 border-y my-10">
-          <h2 class="text-4xl font-bold mb-4">Yutuqlarimiz</h2>
+          <h2 class="text-4xl font-bold mb-4">{t("yutuqlarimiz")}</h2>
           <p class="text-lg text-[#6F6F6F] mb-12">
-            10 yil davomida biz erishgan raqamlar bilan tanishing
+            {t("natija")}
           </p>
           <div class="grid grid-cols-1 md:place-items-center md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="text-center w-48">
               <span class="text-[44px] font-bold">
                 80 <span class="text-red-600">%</span>
               </span>
-              <p class="text-xl mt-2">4 yildan ortiq hamkorlik qilayotgan</p>
+              <p class="text-xl mt-2">{t("hamkorlik")}</p>
             </div>
             <div class="text-center w-48">
               <span class="text-[44px] font-bold">3.200+</span>
-              <p class="text-xl mt-2">Keltirilgan yuklar</p>
+              <p class="text-xl mt-2">{t("keltirilgan_yuklar")}</p>
             </div>
             <div class="text-center w-48">
               <span class="text-[44px] font-bold">125+</span>
-              <p class="text-xl mt-2">Keltirilgan butun yuk (fura/konteyner)</p>
+              <p class="text-xl mt-2">{t("keltirilgan_butun_yuklar")}</p>
             </div>
             <div class="text-center w-48">
-              <span class="text-[44px] font-bold">14 kun</span>
-              <p class="text-xl mt-2">O'rtacha kirish muddati</p>
+              <span class="text-[44px] font-bold">14 {t('kun')}</span>
+              <p class="text-xl mt-2">{t("muddat")}</p>
             </div>
           </div>
         </div>
@@ -386,10 +386,10 @@ function Home({ changeLang }) {
         {/* six section */}
         <div className="flex flex-col items-center justify-center w-full min-h-screen p-4">
           <div className="w-full bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-4xl font-bold mb-2">Mijozlarimiz fikri</h2>
+            <h2 className="text-4xl font-bold mb-2">{t("mijoz_fikri")}</h2>
             <p className="text-muted-foreground text-lg text-[#6F6F6F] my-6">
-              GSR Logistics kompaniyasining doimiy mijozlarining <br />{" "}
-              kompaniyamizga bo'lgan ishonchi - bu bizning yutug'imiz.
+              {t("gsrlogistik")} <br />{" "}
+              {t("ishonch")}
             </p>
             <div className="flex flex-col align-middle md:flex-row">
               <img
@@ -399,13 +399,10 @@ function Home({ changeLang }) {
               />
               <div className="w-full md:w-1/2 h-full flex flex-col md:py-[11.35rem] justify-center bg-gray-50 p-6 rounded-lg md:rounded-r-lg">
                 <p className="text-xl font-semibold mb-4">
-                  “Sifatli xizmat va tezkorlik”
+                  {t("sifatli_xizmat")}
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  GSR Logistics kompaniyasi Xitoydan topishdan tashqari to
-                  toshkenda qo'limizga kelib tushgunga, har bir bosqichda bizni
-                  foydamizni o'ylab ish yuritishadi, shu sababdan doim
-                  ishonamiz.
+                  {t("xitoydan_tashqari")}
                 </p>
                 <p className="font-semibold">Ariqulov Erkin</p>
                 <p className="text-muted-foreground">SHVEY DETAILS OOO</p>
@@ -426,14 +423,14 @@ function Home({ changeLang }) {
         <div id="hamkorlar" className="bg-[#fcfcfc] p-4 py-10 my-10 mt-22">
           <div className="flex flex-wrap gap-5 w-full px-20 justify-between">
             <div>
-              <h3 className="text-4xl font-bold">Hamkorlarimiz </h3>
+              <h3 className="text-4xl font-bold">{t("hamkorlarimiz")}</h3>
               <h4 className="text-4xl font-bold">1000+</h4>
             </div>
             <div>
-              <p className="text-[#b8252a]">Hamkorlar</p>
+              <p className="text-[#b8252a]">{t("hamkorlar")}</p>
               <p className="text-[#a3a3a3] text-lg">
-                Biz va mijoz o’rtasidagi kelishuv havfsizligi <br />
-                ta’minlanadi
+                {t("bizvamijozlar")} <br />
+                {t("taminlanadi")}
               </p>
             </div>
           </div>
@@ -451,13 +448,11 @@ function Home({ changeLang }) {
         >
           <div className="mt-20">
             <h1 className="text-4xl font-bold text-center">
-              Xitoy va O’zbekiston bo’ylab jamoalarimiz
+              {t("xitoyvaUzb")}
             </h1>
             <div className="w-full sm:w-3/4 md:w-1/3 mx-auto mt-6 p-2">
               <p className="text-center text-lg text-[#6F6F6F]">
-                Har bir jamoa vakili o’ziga yarasha kuch va bilimga ega.
-                Mijozlarimiz bilan kompaniyamiz o’rtasidagi munosabatlarni
-                mustaxkamligi jamoaning har bir a’zosining mexnat natijasidur.
+               {t("eachteam")}
               </p>
             </div>
           </div>
@@ -489,23 +484,23 @@ function Home({ changeLang }) {
           className="flex flex-col items-center justify-center min-h-screen p-4 bg-white"
           id="contact"
         >
-          <h1 className="md:text-[72px] text-3xl mt-5 font-bold text-center">
-            Baxtli mijozlardan biri bo’ling
+          <h1 className="md:text-[72px]  mt-5 font-bold text-center">
+            {t("baxtliMijoz")}
           </h1>
           <p className="my-16 text-center text-lg">
-            Ma'lumotlarni to'ldiring va baxtli mijozlar qatoriga qo'shiling.
+            {t("malumotlarnituldiring")}
           </p>
           <div className="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
             <form className="space-y-4">
               <div className="flex gap-5">
                 <div className="space-y-2 flex flex-col">
                   <label className="font-bold" htmlFor="name">
-                    Ismingiz
+                   {t("ismingiz")}
                   </label>
                   <input
                     className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                     id="name"
-                    placeholder="Xojiakbar"
+                    placeholder={t("xojakbar")}
                     onChange={(e) =>
                       setContact((prev) => ({
                         ...prev,
@@ -516,7 +511,7 @@ function Home({ changeLang }) {
                 </div>
                 <div className="space-y-2 flex flex-col">
                   <label className="font-bold" htmlFor="activity">
-                    Faoliyatingiz
+                    {t("Faoliyatingiz")}
                   </label>
                   <input
                     onChange={(e) =>
@@ -524,13 +519,13 @@ function Home({ changeLang }) {
                     }
                     className="outline-none rounded-full p-3 w-44 bg-[#f2f2f2]"
                     id="activity"
-                    placeholder="Biznes"
+                    placeholder={t("biznes")}
                   />
                 </div>
               </div>
               <div className="space-y-2 flex flex-col">
                 <label className="font-bold" htmlFor="phone">
-                  Phone
+                  {t("Phone")}
                 </label>
                 <input
                   onChange={(e) =>
@@ -543,7 +538,7 @@ function Home({ changeLang }) {
               </div>
               <div className="space-y-3">
                 <label className="font-bold mt-5" htmlFor="details">
-                  Yukingiz haqida qo’shimcha ma’lumotlar
+                  {t("yukhaqida")}
                 </label>
                 <textarea
                   onChange={(e) =>
@@ -551,7 +546,7 @@ function Home({ changeLang }) {
                   }
                   className="outline-none rounded-xl p-3 w-full h-32 bg-[#f2f2f2]"
                   id="details"
-                  placeholder="Yuk hajmi 200 kg 3 kub atrofida"
+                  placeholder={t("yukHajmi")}
                 />
               </div>
             </form>
@@ -567,7 +562,7 @@ function Home({ changeLang }) {
                 onClick={handleClick}
                 className="px-4 rounded-full py-3 bg-[#b8252a] text-white transition-colors duration-200 ease-in-out transform hover:bg-[#a71f24] active:bg-[#90181d]  active:scale-95"
               >
-                Yuborish
+                {t("boglanish")}
               </button>
 
               <div className="flex gap-3 mt-3">

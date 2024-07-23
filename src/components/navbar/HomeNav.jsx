@@ -2,29 +2,39 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../home page/home.css";
 import { logo1 } from "../../assets";
+import  uzb  from "../../assets/uz.png";
+import rus from "../../assets/ru.png";
+import eng from "../../assets/eng.png";
 import { IoLockClosedOutline } from "react-icons/io5";
+import { t } from "i18next";
+import { changeLanguage } from "../../App";
+import { languageStore } from "../../locale/languageStore";
 
 function HomeNav() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [activeItem, setActiveItem] = useState("home");
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+
+  const { setSelectedLanguage } = languageStore();
 
   const openMenu = () => setIsOpenMenu(!isOpenMenu);
+  const toggleAccordion = () => setIsAccordionOpen(!isAccordionOpen);
 
   const navItem = [
     {
-      label: "Bosh sahifa",
+      label: `${t("boshsahifa")}`,
       navigate: "home",
     },
     {
-      label: "Biz haqimizda",
+      label: `${t("bizhaqimizda")}`,
       navigate: "about",
     },
     {
-      label: "Hamkorlarimiz",
+      label: `${t("hamkorlarimiz")}`,
       navigate: "hamkorlar",
     },
     {
-      label: "Hodimlar",
+      label: `${t("Hodimlar")}`,
       navigate: "hodimlar",
     },
   ];
@@ -116,7 +126,7 @@ function HomeNav() {
                 className="px-3 py-2 flex items-center gap-3 rounded-md text-base font-medium text-white"
               >
                 <IoLockClosedOutline />
-                Kirish
+                {t("Kirish")}
               </Link>
               <button
                 onClick={() => {
@@ -132,8 +142,61 @@ function HomeNav() {
                 }}
                 className="flex text-lg gap-3 rounded-full bg-red-500 p-1 text-gray-400 px-4 py-2"
               >
-                <p className="block sm:hidden md:block text-white">Bog'lanish</p>
+                <p className="block sm:hidden md:block text-white">
+                  {t("boglanish")}
+                </p>
               </button>
+            </div>
+            <div className="relative ml-4">
+              <button
+                onClick={toggleAccordion}
+                className="flex text-lg gap-3 rounded-full w-full text-white px-10 py-2"
+              >
+                <p>{t("Language")}</p>
+              </button>
+              {isAccordionOpen && (
+                <div className="absolute right-0 mt-2 w-30 bg-white rounded-md shadow-lg z-20">
+                  <button
+                    onClick={() => {
+                      changeLanguage("uz", setSelectedLanguage);
+                      toggleAccordion();
+                    }}
+                    className="block w-full  text-left px-4 py-1 text-gray-700 hover:bg-gray-100"
+                  >
+                    <img
+                      className="h-10 w-auto hidden sm:inline"
+                      src={uzb}
+                      alt="Your Company"
+                    /> UZ
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage("ru", setSelectedLanguage);
+                      toggleAccordion();
+                    }}
+                    className="block w-full text-left px-2 py-2 text-gray-700 hover:bg-gray-100"
+                  >
+                   <img
+                      className="h-10 w-auto hidden sm:inline"
+                      src={rus}
+                      alt="Your Company"
+                    />RU
+                  </button>
+                  <button
+                    onClick={() => {
+                      changeLanguage("en", setSelectedLanguage);
+                      toggleAccordion();
+                    }}
+                     className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100"
+                  >
+                   <img
+                      className="h-12 w-auto hidden sm:inline"
+                      src={eng}
+                      alt="Your Company"
+                    />EN
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
