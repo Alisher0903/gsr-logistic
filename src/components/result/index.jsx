@@ -45,7 +45,7 @@ const Result = () => {
       await axios.delete(`${url}category?id=${deleteCategoryId}`, config);
       getContact(0);
     } catch (error) {
-      toast.error(error.message);
+      toast.error("hjhdhjsah");
     }
   };
 

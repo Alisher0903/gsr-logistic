@@ -95,6 +95,12 @@ function Home({ changeLang }) {
 
   const getResult = async () => {
     try {
+      // Log the data being sent to the backend
+      console.log('Sending data to backend:', {
+        ...result,
+        kg: +result.kg,
+        kub: +result.kub,
+      });
       const { data } = await axios.post(`${url}category/result`, {
         ...result,
         kg: +result.kg,
@@ -106,6 +112,7 @@ function Home({ changeLang }) {
       setResultData();
     }
   };
+  
 
   return (
     <>
