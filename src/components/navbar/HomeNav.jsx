@@ -150,7 +150,7 @@ function HomeNav() {
             <div className="relative ml-4">
               <button
                 onClick={toggleAccordion}
-                className="flex text-lg gap-3 rounded-full w-full text-white px-10 py-2"
+                className="flex text-lg gap-3 rounded-full w-full text-white px-6 py-2"
               >
                 <p>{t("Language")}</p>
               </button>
