@@ -89,7 +89,7 @@ function Home({ changeLang }) {
       const { data } = await axios.post(`${url}contact`, contact);
       toast.success(data.message);
     } catch (error) {
-      toast.error("Iltimos ma'lumotlarni to'ldiring !");
+      toast.error(`${t('taos')}`);
     }
   };
 
@@ -102,7 +102,7 @@ function Home({ changeLang }) {
       });
       setResultData(data.body);
     } catch (error) {
-      toast.error("Iltimos ma'lumotlarni to'ldiring !");
+      toast.error(`${t('taos')}`);
       setResultData();
     }
   };

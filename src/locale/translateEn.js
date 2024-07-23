@@ -298,6 +298,7 @@ const translateEn = {
   keltirilgan_butun_yuklar: "Total cargo delivered (cargo/container)",
   kun: "day",
   Language:"Language",
+  taos:"Please fill in the information!",
   xojakbar:"Xojiakbar",
   biznes:"Business",
   ObunaBuling:"Subscribe",

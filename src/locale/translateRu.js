@@ -280,6 +280,7 @@ const translateRu = {
   xojakbar:"Ходжакбар",
   biznes:"Бизнес",
   Language:'Язык',
+  taos:"Пожалуйста, заполните информацию!",
   ObunaBuling:"Подписаться",
   yukHajmi:"Объем груза 200 кг и около 3 кубических метров",
   boglanish: "Соединять",

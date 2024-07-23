@@ -44,6 +44,7 @@ const translateUz = {
     xojakbar:"Xojiakbar",
     biznes:"Biznes",
     Language:"Til",
+    taos:"Iltimos ma'lumotlarni to'ldiring !",
     ObunaBuling:"Obuna bo’ling",
     yukHajmi:"Yuk hajmi 200 kg 3 kub atrofida",
     hamkorlik:"Biz 4 yildan ortiq hamkorlik qilib kelmoqdamiz",
