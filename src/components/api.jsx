@@ -1,8 +1,7 @@
 import axios from "axios";
 
-// export const url = 'http://137.184.13.215:8080/'
-export const url = 'https://www.gsrlogistic.uz/'
-// export const url = 'http://192.168.153.154/'
+export const url = 'http://137.184.13.215:8080/'
+// export const url = 'https://gsrlogistic.uz/'
 export const byIdObj = (id) => document.getElementById(id);
 export const byId = (id) => byIdObj(id) ? byIdObj(id).value : '';
 export const config = {
